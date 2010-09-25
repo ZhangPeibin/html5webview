@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -57,6 +58,8 @@ public class HTML5WebView extends WebView {
 	    s.setSavePassword(true);
 	    s.setSaveFormData(true);
 	    s.setJavaScriptEnabled(true);
+	    s.setGeolocationEnabled(true);
+	    s.setGeolocationDatabasePath("/data/data/org.itri.html5webview/databases/");
 	    
 	    mContentView.addView(this);
 	}
@@ -170,6 +173,11 @@ public class HTML5WebView extends WebView {
          @Override
          public void onProgressChanged(WebView view, int newProgress) {
         	 ((Activity) mContext).getWindow().setFeatureInt(Window.FEATURE_PROGRESS, newProgress*100);
+         }
+         
+         @Override
+         public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
+             callback.invoke(origin, true, false);
          }
     }
 	
