@@ -190,8 +190,9 @@ public class HTML5WebView extends WebView {
 	    @Override
 	    public boolean shouldOverrideUrlLoading(WebView view, String url) {
 	    	Log.i(LOGTAG, "shouldOverrideUrlLoading: "+url);
-	        view.loadUrl(url);
-	        return true;
+	    	// don't override URL so that stuff within iframe can work properly
+	        // view.loadUrl(url);
+	        return false;
 	    }
 	}
 	

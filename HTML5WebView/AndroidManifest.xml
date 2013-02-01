@@ -3,7 +3,20 @@
       package="org.itri.html5webview"
       android:versionCode="1"
       android:versionName="1.0">
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+
+<uses-permission android:name="android.permission.INTERNET"></uses-permission>>
+<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+<uses-permission android:name="android.permission.ACCESS_GPS" />
+<uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
+<uses-permission android:name="android.permission.ACCESS_LOCATION" />
+<uses-sdk android:minSdkVersion="11" android:targetSdkVersion="17"/>
+    <application android:icon="@drawable/icon" 
+        	android:label="@string/app_name" 
+        	android:hardwareAccelerated="true" 
+        	android:allowBackup="true"
+        	android:configChanges="orientation">
         <activity android:name=".TestHTML5WebView"
                   android:label="@string/app_name">
             <intent-filter>
@@ -11,14 +24,5 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
-
-<uses-permission android:name="android.permission.INTERNET"></uses-permission>
-<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-<uses-permission android:name="android.permission.ACCESS_GPS" />
-<uses-permission android:name="android.permission.ACCESS_ASSISTED_GPS" />
-<uses-permission android:name="android.permission.ACCESS_LOCATION" />
 </manifest> 

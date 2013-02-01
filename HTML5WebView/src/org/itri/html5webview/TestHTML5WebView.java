@@ -1,6 +1,7 @@
 package org.itri.html5webview;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -15,8 +16,9 @@ public class TestHTML5WebView extends Activity {
         
         if (savedInstanceState != null) {
         	mWebView.restoreState(savedInstanceState);
-        } else {	
+        } else {
         	mWebView.loadUrl("http://freebsd.csie.nctu.edu.tw/~freedom/html5/");
+        	//mWebView.loadUrl("file:///data/bbench/index.html");
         }
         
         setContentView(mWebView.getLayout());
@@ -43,5 +45,10 @@ public class TestHTML5WebView extends Activity {
             }
     	}
     	return super.onKeyDown(keyCode, event);
+    }
+    
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+         super.onConfigurationChanged(newConfig);
     }
 }
